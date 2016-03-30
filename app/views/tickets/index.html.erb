@@ -1,0 +1,29 @@
+<%= link_to('new ticket', new_ticket_path) %>
+
+<% @tickets.each do |f| %>
+  <table>
+    <tr>
+      <th>Ticket</th>
+      <td><%= f.ticket_no %></td>
+    </tr>
+    <tr>
+      <th>User:</th>
+      <td><%= f.user.name %></td>
+    </tr>
+    <tr>
+      <th>ETA:</th>
+      <td><%= f.estimated_time%></td>
+    </tr>
+    <tr>
+      <th>Actions:</th>
+      <td>
+
+        <%= link_to('show', ticket_path(f.id), method: 'get') %>
+        <%= link_to('delete', ticket_path(f.id), method: 'delete', data: {confirm: "Are you sure?"}) %>
+        <%= link_to('edit', edit_ticket_path(f.id), method: 'get') %>
+
+      </td>
+    </tr>
+  </table>
+
+<% end %>

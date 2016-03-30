@@ -1,0 +1,24 @@
+<%= link_to('new user', new_user_path) %>
+
+<% @users.each do |f| %>
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <td><%= f.name %></td>
+  </tr>
+  <tr>
+    <th>Username:</th>
+    <td><%= f.username %></td>
+  </tr><tr>
+    <th>Email:</th>
+    <td><%= f.email %></td>
+  </tr><tr>
+    <th>Actions:</th>
+    <td>
+      <%= link_to('show', user_path(f.id), method: 'get') %>
+      <%= link_to('delete', user_path(f.id), method: 'delete', data: {confirm: "Are you sure?"}) %>
+      <%= link_to('edit', edit_user_path(f.id), method: 'get') %>
+    </td>
+</table>
+<% end %>

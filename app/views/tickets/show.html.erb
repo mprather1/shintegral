@@ -1,0 +1,28 @@
+
+
+
+<table>
+  <tr>
+    <th>Ticket Number:</th>
+    <td><%= @ticket.ticket_no %></td>
+  </tr>
+  <tr>
+    <th>User:</th>
+    <td><%= @ticket.user.name %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= @ticket.description %></td>
+  </tr>
+  <tr>
+    <th>ETA:</th>
+    <td><%= @ticket.estimated_time %></td>
+  <tr>
+    <th>Actions:</th>
+    <td>
+    <%= link_to('delete', ticket_path(@ticket), method: 'delete', data: {confirm: "Are you sure?"}) %>
+    <%= link_to("edit", edit_ticket_path(@ticket), method: 'get') %>
+  </td>
+  </tr>
+
+</table>

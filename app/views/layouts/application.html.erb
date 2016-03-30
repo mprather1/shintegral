@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Southern Heartland Integral Technology" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <div class="row full-width">
+    <div class="medium-12 colums">
+  <body>
+    <header>
+      <div class="row">
+        <div class="large-10 small-8 columns">
+          <h1>Southern Heartland Integral Technology</h1>
+
+        </div>
+        <div class="large-2 small-4 columns">
+          <p><strong>I.T. Happens!!!</strong><br>
+          620 555 5555</p>
+
+
+        </div>
+      </div>
+
+    </header>
+    <nav>
+      <%= link_to_unless_current("Home", access_index_path) %>
+      <% if logged_in? %>
+        <%= link_to_unless_current("My Account", user_path(session[:user_id])) %>
+        <%= link_to("Logout", access_logout_path) %>
+      <% else %>
+        <%= link_to_unless_current("Login", access_login_path) %>
+      <% end %>
+
+    </nav>
+
+        <%= yield %>
+
+
+  </body>
+</div>
+</div>
+</html>

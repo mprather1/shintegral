@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th><%= f.label(:user_id) %></th>
+    <td><%= f.select(:user_id, @users.map {|s| [s.name, s.id] }) %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:ticket_no) %></th>
+    <td><%= f.text_field(:ticket_no) %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:description) %></th>
+    <td><%= f.text_field(:description) %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:eta) %></th>
+    <td><%= f.date_field(:eta) %></td>
+  </tr>
+  <!--tr>
+    <th><%# f.label(:eta) %></th>
+        <%# calendar_date_select_tag :eta, :format => :american, :year_range => 50.years.ago..0.years.ago %>  </tr-->
+</table>
